@@ -7,7 +7,7 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         body {
-            font-family: 'Times New Roman', Times, serif, sans-serif;
+            font-family: 'Times New Roman', Times, serif;
             text-align: center;
             background-color: #f4f4f4;
             margin: 0;
@@ -72,25 +72,25 @@
     </style>
 </head>
 <body>
-    <h1>Clasifica los Excedentes de la Costrucción</h1>
+    <h1>Clasifica los Excedentes de la Construcción</h1>
     <section class="game-container">
-        <div class="bin" id="organico">
+        <div class="bin" id="obra_negra">
             <h3>Obra Negra</h3>
             <img src="imagenes/obra gris 1.avif" alt="paredes de concreto">
         </div>
-        <div class="bin" id="aprovechable">
+        <div class="bin" id="obra_blanca">
             <h3>Obra blanca</h3>
             <img src="imagenes/obra blanca 1.jpg" alt="estuco y pintura">
         </div>
-        <div class="bin" id="no_aprovechable">
+        <div class="bin" id="demoliciones">
             <h3>Demoliciones y Remodelaciones</h3>
-            <img src="imagenes/remodelaciones 1.jpg" alt="remocelación de baño">
+            <img src="imagenes/remodelaciones 1.jpg" alt="remodelación de baño">
         </div>
     </section>
     <section class="item-container">
         <img class="item" src="imagenes/obra blanca.png" alt="Azulejos" id="Azulejos">
         <img class="item" src="imagenes/remodelaciones.png" alt="Ventana" id="Ventana">
-        <img class="item" src="imagenes/obra negra.png" alt="ladrillo gris" id="ladrillo">
+        <img class="item" src="imagenes/obra negra.png" alt="Ladrillo gris" id="Ladrillo">
     </section>
     <button id="verify-btn">Verificar</button>
     <p id="result"></p>
@@ -122,11 +122,11 @@
             });
 
             verifyBtn.addEventListener("click", function () {
-                const Ladrillo= document.getElementById("Ladrillo").parentElement.id === "obra_negra";
+                const Ladrillo = document.getElementById("Ladrillo").parentElement.id === "obra_negra";
                 const Azulejos = document.getElementById("Azulejos").parentElement.id === "obra_blanca";
-                const Ventana = document.getElementById("Ventana").parentElement.id === "remodelaciones";
+                const Ventana = document.getElementById("Ventana").parentElement.id === "demoliciones";
                 
-                if (ladrillo && Azulejos && Ventana) {
+                if (Ladrillo && Azulejos && Ventana) {
                     resultText.textContent = "¡Correcto! Has clasificado bien los residuos.";
                     resultText.style.color = "green";
                 } else {
