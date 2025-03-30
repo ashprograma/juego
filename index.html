@@ -77,15 +77,15 @@
     <section class="game-container">
         <div class="bin" id="obra_negra">
             <h3>Obra Negra</h3>
-            <img src="imagenes/obra_gris_1.avif" alt="paredes de concreto">
+            <img src="imagenes/obra gris 1.avif" alt="paredes de concreto">
         </div>
         <div class="bin" id="obra_blanca">
             <h3>Obra Blanca</h3>
-            <img src="imagenes/obra_blanca_1" alt="estuco y pintura">
+            <img src="imagenes/obra blanca 1" alt="estuco y pintura">
         </div>
         <div class="bin" id="remodelaciones">
             <h3>Demoliciones y Remodelaciones</h3>
-            <img src="imagenes/remodelaciones_1.jpg" alt="remodelación de baño">
+            <img src="imagenes/remodelaciones 1.jpg" alt="remodelación de baño">
         </div>
     </section>
 
@@ -131,14 +131,12 @@
 
             // Verificación
             verifyBtn.addEventListener("click", function () {
-                const Ladrillo = document.getElementById("Ladrillo").parentElement.id === "obra_negra";
-                const Escombros = document.getElementById("Escombros").parentElement.id === "obra_negra";
-
-                const Azulejos = document.getElementById("Azulejos").parentElement.id === "obra_blanca";
-                const Pintura = document.getElementById("Pintura").parentElement.id === "obra_blanca";
-
-                const Ventana = document.getElementById("Ventana").parentElement.id === "remodelaciones";
                 const Sanitario = document.getElementById("Sanitario").parentElement.id === "remodelaciones";
+                const Escombros = document.getElementById("Escombros").parentElement.id === "obra_negra";
+                const Azulejos = document.getElementById("Azulejos").parentElement.id === "obra_blanca";
+                const Ladrillo = document.getElementById("Ladrillo").parentElement.id === "obra_negra";
+                const Pintura = document.getElementById("Pintura").parentElement.id === "obra_blanca";
+                const Ventana = document.getElementById("Ventana").parentElement.id === "remodelaciones";
 
                 if (Ladrillo && Escombros && Azulejos && Pintura && Ventana && Sanitario) {
                     resultText.textContent = "¡Correcto! Has clasificado bien los residuos.";
