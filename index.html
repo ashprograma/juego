@@ -75,22 +75,22 @@
     <h1>Clasifica los Residuos</h1>
     <section class="game-container">
         <div class="bin" id="organico">
-            <h3>Residuos Orgánicos</h3>
-            <img src="imagenes/orgánicos.png" alt="Contenedor de residuos orgánicos">
+            <h3>Obra Negra</h3>
+            <img src="imagenes/obra gris 1.avif" alt="paredes de concreto">
         </div>
         <div class="bin" id="aprovechable">
-            <h3>Residuos Aprovechable</h3>
-            <img src="imagenes/aprovechables.png" alt="Contenedor de residuos aprovechables">
+            <h3>Obra blanca</h3>
+            <img src="imagenes/obra blanca 1.jpg" alt="estuco y pintura">
         </div>
         <div class="bin" id="no_aprovechable">
-            <h3>Residuos No Aprovechable</h3>
-            <img src="imagenes/no_aprovechables.png" alt="Contenedor de residuos no aprovechables">
+            <h3>Demoliciones y Remodelaciones</h3>
+            <img src="imagenes/remodelaciones 1.jpg" alt="remocelación de baño">
         </div>
     </section>
     <section class="item-container">
-        <img class="item" src="imagenes/botella.png" alt="Botella de plástico" id="botella">
-        <img class="item" src="imagenes/envoltura.jpg" alt="Envoltura de plástico" id="envoltura">
-        <img class="item" src="imagenes/banano.jpg" alt="Cáscaras de banano" id="banano">
+        <img class="item" src="imagenes/obra negra.png" alt="ladrillo gris" id="ladrillo">
+        <img class="item" src="imagenes/obra blanca.png" alt="Azulejos" id="Azulejos">
+        <img class="item" src="imagenes/remodelaciones.png" alt="Ventana" id="Ventana">
     </section>
     <button id="verify-btn">Verificar</button>
     <p id="result"></p>
@@ -122,11 +122,11 @@
             });
 
             verifyBtn.addEventListener("click", function () {
-                const banano= document.getElementById("banano").parentElement.id === "organico";
-                const envoltura = document.getElementById("envoltura").parentElement.id === "no_aprovechable";
-                const botella = document.getElementById("botella").parentElement.id === "aprovechable";
+                const ladrillo= document.getElementById("obra_gris_1").parentElement.id === "obra_negra";
+                const azulejos = document.getElementById("obra_blanca_1").parentElement.id === "obra_blanca";
+                const ventana = document.getElementById("remodelaciones_1").parentElement.id === "remodelaciones";
                 
-                if (botella && banano && envoltura) {
+                if (ladrillo && azulejos && ventana) {
                     resultText.textContent = "¡Correcto! Has clasificado bien los residuos.";
                     resultText.style.color = "green";
                 } else {
@@ -137,4 +137,4 @@
         });
     </script>
 </body>
-</html
+</htm
