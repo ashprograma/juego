@@ -7,7 +7,7 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         body {
-            font-family: 'Times New Roman', Times, serif;
+            font-family: 'Times New Roman', Times, serif, sans-serif;
             text-align: center;
             background-color: #f4f4f4;
             margin: 0;
@@ -20,8 +20,8 @@
             margin: 20px;
         }
         .bin {
-            width: 150px;
-            height: 200px;
+            width: 180px;
+            height: 250px;
             margin: 20px;
             border: 2px solid #000;
             border-radius: 10px;
@@ -48,7 +48,7 @@
         #verify-btn {
             margin-top: 50px;
             padding: 15px 25px;
-            font-size: 16px;
+            font-size: 18px;
             background-color: #28a745;
             color: white;
             border: none;
@@ -56,8 +56,8 @@
             cursor: pointer;
         }
         #result {
-            margin-top: 20px;
-            font-size: 18px;
+            margin-top: 50px;
+            font-size: 20px;
             font-weight: bold;
         }
         @media (max-width: 600px) {
@@ -73,28 +73,39 @@
 </head>
 <body>
     <h1>Clasifica los Excedentes de la Construcción</h1>
+    
     <section class="game-container">
-        <div class="bin" id="obra_negra" data-bin="Ladrillo">
+        <div class="bin" id="obra_negra">
             <h3>Obra Negra</h3>
-            <img src="imagenes/obra gris 1.avif" alt="paredes de concreto">
+            <img src="imagenes/obra_negra1.png" alt="paredes de concreto">
         </div>
-        <div class="bin" id="obra_blanca" data-bin="Azulejos">
+        <div class="bin" id="obra_blanca">
             <h3>Obra Blanca</h3>
-            <img src="imagenes/obra blanca 1.jpg" alt="estuco y pintura">
+            <img src="imagenes/obra_blanca1.jpg" alt="estuco y pintura">
         </div>
-        <div class="bin" id="demoliciones" data-bin="Ventana">
+        <div class="bin" id="remodelaciones">
             <h3>Demoliciones y Remodelaciones</h3>
-            <img src="imagenes/remodelaciones 1.jpg" alt="remodelación de baño">
+            <img src="imagenes/remodelaciones1.jpg" alt="remodelación de baño">
         </div>
     </section>
+
     <section class="item-container">
-        <img class="item" src="imagenes/obra blanca.png" alt="Azulejos" id="Azulejos" data-item="Azulejos">
-        <img class="item" src="imagenes/remodelaciones.png" alt="Ventana" id="Ventana" data-item="Ventana">
-        <img class="item" src="imagenes/obra negra.png" alt="Ladrillo gris" id="Ladrillo" data-item="Ladrillo">
+        <!-- Obra Negra -->
+        <img class="item" src="imagenes/obra negra.png" alt="Ladrillo" id="Ladrillo">
+        <img class="item" src="imagenes/Escombros.jpg" alt="Escombros" id="Escombros">
+        
+        <!-- Obra Blanca -->
+        <img class="item" src="imagenes/obra blanca.png" alt="Azulejos" id="Azulejos">
+        <img class="item" src="imagenes/Pintura.png" alt="Pintura" id="Pintura">
+        
+        <!-- Remodelaciones -->
+        <img class="item" src="imagenes/remodelaciones.png" alt="Ventana" id="Ventana">
+        <img class="item" src="imagenes/Sanitario.webp" alt="Sanitario" id="Sanitario">
     </section>
+
     <button id="verify-btn">Verificar</button>
     <p id="result"></p>
-
+    
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const items = document.querySelectorAll(".item");
@@ -102,6 +113,7 @@
             const verifyBtn = document.getElementById("verify-btn");
             const resultText = document.getElementById("result");
 
+            // Hacer las imágenes arrastrables
             items.forEach(item => {
                 item.draggable = true;
                 item.addEventListener("dragstart", (event) => {
@@ -109,11 +121,11 @@
                 });
             });
 
+            // Permitir que las categorías reciban los elementos
             bins.forEach(bin => {
                 bin.addEventListener("dragover", (event) => {
                     event.preventDefault();
                 });
-
                 bin.addEventListener("drop", (event) => {
                     event.preventDefault();
                     const itemId = event.dataTransfer.getData("text");
@@ -122,19 +134,18 @@
                 });
             });
 
+            // Verificación
             verifyBtn.addEventListener("click", function () {
-                let allCorrect = true;
+                const Ladrillo = document.getElementById("Ladrillo").parentElement.id === "obra_negra";
+                const Escombros = document.getElementById("Escombros").parentElement.id === "obra_negra";
 
-                bins.forEach(bin => {
-                    const expectedItem = bin.getAttribute("data-bin");
-                    const droppedItem = bin.querySelector(".item");
+                const Azulejos = document.getElementById("Azulejos").parentElement.id === "obra_blanca";
+                const Pintura = document.getElementById("Pintura").parentElement.id === "obra_blanca";
 
-                    if (!droppedItem || droppedItem.getAttribute("data-item") !== expectedItem) {
-                        allCorrect = false;
-                    }
-                });
+                const Ventana = document.getElementById("Ventana").parentElement.id === "remodelaciones";
+                const Sanitario = document.getElementById("Sanitario").parentElement.id === "remodelaciones";
 
-                if (allCorrect) {
+                if (Ladrillo && Escombros && Azulejos && Pintura && Ventana && Sanitario) {
                     resultText.textContent = "¡Correcto! Has clasificado bien los residuos.";
                     resultText.style.color = "green";
                 } else {
