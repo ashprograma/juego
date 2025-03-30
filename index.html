@@ -122,11 +122,11 @@
             });
 
             verifyBtn.addEventListener("click", function () {
-                const obra_negra= document.getElementById("ladrillo").parentElement.id === "obra_negra";
-                const obra_blanca = document.getElementById("azulejos").parentElement.id === "obra_blanca";
-                const remodelaciones = document.getElementById("ventana").parentElement.id === "remodelaciones";
+                const Ladrillo= document.getElementById("Ladrillo").parentElement.id === "obra_negra";
+                const Azulejos = document.getElementById("Azulejos").parentElement.id === "obra_blanca";
+                const Ventana = document.getElementById("Ventana").parentElement.id === "remodelaciones";
                 
-                if (obra_negra && obra_blanca && remodelaciones) {
+                if (ladrillo && Azulejos && Ventana) {
                     resultText.textContent = "¡Correcto! Has clasificado bien los residuos.";
                     resultText.style.color = "green";
                 } else {
