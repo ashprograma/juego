@@ -88,9 +88,9 @@
         </div>
     </section>
     <section class="item-container">
-        <img class="item" src="imagenes/obra negra.png" alt="ladrillo gris" id="ladrillo">
         <img class="item" src="imagenes/obra blanca.png" alt="Azulejos" id="Azulejos">
         <img class="item" src="imagenes/remodelaciones.png" alt="Ventana" id="Ventana">
+        <img class="item" src="imagenes/obra negra.png" alt="ladrillo gris" id="ladrillo">
     </section>
     <button id="verify-btn">Verificar</button>
     <p id="result"></p>
@@ -122,11 +122,11 @@
             });
 
             verifyBtn.addEventListener("click", function () {
-                const ladrillo= document.getElementById("obra_gris_1").parentElement.id === "obra_blanca";
-                const azulejos = document.getElementById("obra_blanca_1").parentElement.id === "obra_negra";
+                const ladrillo= document.getElementById("obra_gris_1").parentElement.id === "obra_negra";
+                const azulejos = document.getElementById("obra_blanca_1").parentElement.id === "obra_blanca";
                 const ventana = document.getElementById("remodelaciones_1").parentElement.id === "remodelaciones";
                 
-                if (ladrillo && azulejos && ventana) {
+                if (obra_negra && obra_blanca && remodelaciones) {
                     resultText.textContent = "¡Correcto! Has clasificado bien los residuos.";
                     resultText.style.color = "green";
                 } else {
