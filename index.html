@@ -122,8 +122,8 @@
             });
 
             verifyBtn.addEventListener("click", function () {
-                const ladrillo= document.getElementById("obra_gris_1").parentElement.id === "obra_negra";
-                const azulejos = document.getElementById("obra_blanca_1").parentElement.id === "obra_blanca";
+                const ladrillo= document.getElementById("obra_gris_1").parentElement.id === "obra_blanca";
+                const azulejos = document.getElementById("obra_blanca_1").parentElement.id === "obra_negra";
                 const ventana = document.getElementById("remodelaciones_1").parentElement.id === "remodelaciones";
                 
                 if (ladrillo && azulejos && ventana) {
